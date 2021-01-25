@@ -159,7 +159,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/01/20/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/" class="post-title-link" itemprop="url">我的第一篇博客</a>
+            <a href="/2021/01/20/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/" class="post-title-link" itemprop="url">PHP笔记（2）</a>
         </h2>
 
         <div class="post-meta">
@@ -168,10 +168,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2021-01-20 05:57:45 / Modified: 05:58:59" itemprop="dateCreated datePublished" datetime="2021-01-20T05:57:45+08:00">2021-01-20</time>
+              <time title="Created: 2021-01-20 05:57:45" itemprop="dateCreated datePublished" datetime="2021-01-20T05:57:45+08:00">2021-01-20</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-01-25 20:26:36" itemprop="dateModified" datetime="2021-01-25T20:26:36+08:00">2021-01-25</time>
+              </span>
 
           
 
@@ -184,7 +190,68 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>##这是我用hexo框架搭建的第一博客</p>
+          <p>学习ＰＨＰ的一些内置函数</p>
+<h3 id="strlen-：获取字符串长度"><a href="#strlen-：获取字符串长度" class="headerlink" title="strlen() ：获取字符串长度"></a>strlen() ：获取字符串长度</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"><span class="variable">$str</span> = <span class="string">&#x27;abcdef&#x27;</span>;</span><br><span class="line"><span class="built_in">echo</span> strlen(<span class="variable">$str</span>) . <span class="string">&quot;&lt;br /&gt;&quot;</span>;  // 6</span><br><span class="line"><span class="variable">$str</span> = <span class="string">&#x27;ab cd&#x27;</span>;</span><br><span class="line"><span class="built_in">echo</span> strlen(<span class="variable">$str</span>) . <span class="string">&quot;&lt;br /&gt;&quot;</span>;  // 5，空格也是字符</span><br><span class="line"><span class="variable">$str</span> = <span class="string">&quot;我爱中国&quot;</span>;</span><br><span class="line"><span class="built_in">echo</span> strlen(<span class="variable">$str</span>) . <span class="string">&quot;&lt;br /&gt;&quot;</span>;  // 12，一个汉字占三个长度</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+<p>结果是：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">６</span><br><span class="line">５</span><br><span class="line">１２</span><br></pre></td></tr></table></figure>
+<h3 id="addslashes-和stripslashes-：字符串转义"><a href="#addslashes-和stripslashes-：字符串转义" class="headerlink" title="addslashes()和stripslashes()：字符串转义"></a>addslashes()和stripslashes()：字符串转义</h3><p>PHP 中使用 addslashes() 函数转义字符串。所谓字符串转义，就是在某些特殊字符前面加上转义符号\，这些特殊字符包括单引号’、双引号”、反斜线\与空字符NUL。<br>addslashes() 函数返回转义后的字符串。<br>stripslashes() 函数可以还原经 addslashes()转义的字符串。</p>
+<h3 id="count-：获取数组长度"><a href="#count-：获取数组长度" class="headerlink" title="count()：获取数组长度"></a>count()：获取数组长度</h3><p>PHP count() 函数用来获取数组长度，也即计算数组元素的个数。<br>另外，count() 函数还可以统计对象中的属性个数。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">int count ( mixed <span class="variable">$arr</span> [, int <span class="variable">$mode</span> = COUNT_NORMAL ] )</span><br></pre></td></tr></table></figure>
+<p>参数说明：<br>arr 表示要被统计的数组。<br>mode 表示统计模式，是一个可选参数，默认为 0，不会对多维数组中的所有元素进行统计。如果将 mode 设置为 COUNT_RECURSIVE 或者 1，count() 将会递归地对多维数组的所有元素进行统计。<br>返回值：返回数组元素的个数，或者对象属性的个数。如果 arr 是其它类型的值（不是数组或者对象），比如是整数、字符串等，count() 函数将返回 1。如果 arr 是一个没有定义的变量，则返回 0。<br>示例如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"><span class="variable">$info</span> = array(</span><br><span class="line">    <span class="string">&quot;PHP学习&quot;</span>,</span><br><span class="line">    <span class="string">&quot;努力 坚持 奋斗&quot;</span>,</span><br><span class="line">    <span class="string">&quot;１ years old&quot;</span>,</span><br><span class="line">    array(<span class="string">&quot;C&quot;</span>, <span class="string">&quot;C++&quot;</span>, <span class="string">&quot;Java&quot;</span>, <span class="string">&quot;PHP&quot;</span>, <span class="string">&quot;Python&quot;</span>)</span><br><span class="line">);</span><br><span class="line"><span class="built_in">echo</span> count(<span class="variable">$info</span>) . <span class="string">&quot;&lt;br /&gt;&quot;</span>;  //结果为4</span><br><span class="line"><span class="built_in">echo</span> count(<span class="variable">$info</span>, 1);  //结果为9</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+<p>需要注意的是：最后一行代码把 mode 设置为 1，count() 会循环统计二维数组的所有元素，此时array(“C”, “C++”, “Java”, “PHP”, “Python”)作为一个整体会被统计一次，它里面的元素又会被统计一次，所以最终结果为 9。</p>
+<h3 id="数组排序"><a href="#数组排序" class="headerlink" title="数组排序"></a>数组排序</h3><table>
+    <caption>
+        与数组排序相关的函数</caption>
+    <tbody>
+        <tr>
+            <th>
+                函数</th>
+            <th>
+                说明</th>
+        </tr>
+        <tr>
+            <td>
+                sort()</td>
+            <td>
+                对数组元素进行升序排序（从小到大）。</td>
+        </tr>
+        <tr>
+            <td>
+                rsort()</td>
+            <td>
+                对数组元素进行降序排序（从大到小）。</td>
+        </tr>
+        <tr>
+            <td>
+                asort()</td>
+            <td>
+                对数组元素进行升序排序（从小到大），并保持索引关系。</td>
+        </tr>
+        <tr>
+            <td>
+                arsort()</td>
+            <td>
+                对数组元素进行降序排序（从大到小），并保持索引关系。</td>
+        </tr>
+        <tr>
+            <td>
+                shuffle()</td>
+            <td>
+                对数组元素进行随机排序，也就是随机打乱数组。</td>
+        </tr>
+    </tbody>
+</table>
+
+<h3 id="foreach-遍历数组"><a href="#foreach-遍历数组" class="headerlink" title="foreach 遍历数组"></a>foreach 遍历数组</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"><span class="variable">$array</span> = [0, 1, 2];</span><br><span class="line">foreach (<span class="variable">$array</span> as &amp;<span class="variable">$val</span>)&#123;  // 遍历数组</span><br><span class="line">    <span class="built_in">echo</span> <span class="variable">$val</span>;  </span><br><span class="line">&#125;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+<p>输出结果：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">012</span><br></pre></td></tr></table></figure>
+<p>在使用 foreach 循环遍历数组的时候，foreach 是对数组的备份进行操作，在循环内部修改数组不会对循环之外访问数组有影响。</p>
+<h3 id="each-和-list-函数"><a href="#each-和-list-函数" class="headerlink" title="each() 和 list() 函数"></a>each() 和 list() 函数</h3><p>each() 函数返回数组中当前的键值并将数组指针向前移动。在执行 each() 之后，数组指针将停留在数组中的下一个元素或者当碰到数组结尾时停留在最后一个元素。如果要再用 each 遍历数组，就必须使用 reset()。<br>each() 函数和 list() 函数结合可以遍历数组，示例如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"><span class="variable">$info</span> = array(</span><br><span class="line">    <span class="string">&quot;website&quot;</span> =&gt; <span class="string">&quot;百度&quot;</span>,</span><br><span class="line">    <span class="string">&quot;url&quot;</span> =&gt; <span class="string">&quot;https://www.baidu.com/&quot;</span>,</span><br><span class="line">    <span class="string">&quot;age&quot;</span> =&gt; <span class="string">&quot;21年&quot;</span>,</span><br><span class="line">    <span class="string">&quot;author&quot;</span> =&gt; <span class="string">&quot;李彦宏&quot;</span></span><br><span class="line">);</span><br><span class="line"><span class="keyword">while</span>( list(<span class="variable">$key</span>, <span class="variable">$val</span>) = each(<span class="variable">$info</span>) ) &#123;</span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&quot;<span class="variable">$key</span> =&gt; <span class="variable">$val</span>\n&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+<p>结果是：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">website =&gt; 百度</span><br><span class="line">url =&gt; https://www.baidu.com/</span><br><span class="line">age =&gt; 21年</span><br><span class="line">author =&gt; 李彦宏</span><br></pre></td></tr></table></figure>
+<p><b>以上大多笔记整理于网络</b></p>
 
       
     </div>
@@ -218,7 +285,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/01/20/hello-world/" class="post-title-link" itemprop="url">初学php</a>
+            <a href="/2021/01/20/hello-world/" class="post-title-link" itemprop="url">PHP笔记（1）</a>
         </h2>
 
         <div class="post-meta">
@@ -235,7 +302,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-01-25 18:51:24" itemprop="dateModified" datetime="2021-01-25T18:51:24+08:00">2021-01-25</time>
+                <time title="Modified: 2021-01-25 19:34:21" itemprop="dateModified" datetime="2021-01-25T19:34:21+08:00">2021-01-25</time>
               </span>
 
           
@@ -249,22 +316,26 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>学习一些运算符和简单的语句</p>
-<h3 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h3><p>和C语言的运算符差不多，但是有一些新增的运算符。</p>
-<p>-X:取反。</p>
-<p>intdiv(x,y):x 除以 y 的商的整数部分。</p>
-<p>x===y:恒等于，如果 x 恒等于 y，且两者数据类型相同，返回 true，否则返回 false。</p>
-<p>x&lt;&gt;y:不等于。</p>
-<p>x&lt;=&gt;y:组合比较符，如果 x 的值和 y 的值相等（不是恒等于），就返回 0；<br>如果 x 的值大于 y 的值，就返回 1；如果 x 的值小于 y 的值，就返回 -1。</p>
-<p>a xor b:异或,a 和 b <b>仅有<b/>一个为 true 就返回 true。</p>
-<h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+          <p>学习一些运算符和简单的语句以及函数参数传递。</p>
+<h3 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h3><p>和C语言的运算符差不多，但是有一些新增的运算符。<br>-X:取反。<br>intdiv(x,y):x 除以 y 的商的整数部分。<br>x===y:恒等于，如果 x 恒等于 y，且两者数据类型相同，返回 true，否则返回 false。<br>x&lt;&gt;y:不等于。<br>x&lt;=&gt;y:组合比较符，如果 x 的值和 y 的值相等（不是恒等于），就返回 0；<br>如果 x 的值大于 y 的值，就返回 1；如果 x 的值小于 y 的值，就返回 -1。<br>a xor b:异或,a 和 b <b>仅有</b>一个为 true 就返回 true。</p>
+<p><b>字符串链接运算符</b></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"><span class="variable">$a</span> = <span class="string">&#x27;hello&#x27;</span>;</span><br><span class="line"><span class="variable">$b</span> = <span class="string">&#x27;world&#x27;</span>;</span><br><span class="line"><span class="variable">$c</span> = <span class="variable">$a</span> . <span class="variable">$b</span>;</span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$C</span>;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+<p>输出结果是：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hello world</span><br></pre></td></tr></table></figure>
+<h3 id="break与continue语句"><a href="#break与continue语句" class="headerlink" title="break与continue语句"></a>break与continue语句</h3><p>PHP中的break与contiune与C语言一样。<br>break是终止循环，continue是跳出本次循环。</p>
+<h3 id="goto语句"><a href="#goto语句" class="headerlink" title="goto语句"></a>goto语句</h3><p>PHP 中对 goto 语句有一定限制，即目标位置只能位于同一个文件和作用域，<br>也就是说无法跳出一个函数或类方法，也无法跳入另一个函数、其他循环或者 switch 结构中。</p>
+<h3 id="函数参数的传递"><a href="#函数参数的传递" class="headerlink" title="函数参数的传递"></a>函数参数的传递</h3><p>PHP 支持两种参数传递方式，分别是按值传递（默认）和按引用传递。另外，PHP 还支持默<br>认参数和可变长度参数列表。</p>
+<p><b>按值传递</b></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"><span class="keyword">function</span> <span class="built_in">test</span>(<span class="variable">$a</span>)&#123;</span><br><span class="line">    <span class="variable">$a</span> = <span class="variable">$a</span> + 1;</span><br><span class="line">     <span class="built_in">return</span> <span class="variable">$a</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable">$a</span> = 1;</span><br><span class="line"><span class="built_in">echo</span> <span class="built_in">test</span>(<span class="variable">$a</span>);</span><br><span class="line"><span class="built_in">test</span>(2);</span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$a</span>;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+<p>结果：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2 3 1</span><br></pre></td></tr></table></figure>
+<p><b>通过引用传递参数</b><br>如果希望允许函数修改它的参数值，就必须通过引用传递参数。这样我们在函数内部是对这个参数<br>本身进行操作。示例如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"><span class="keyword">function</span> <span class="built_in">test</span>(&amp;<span class="variable">$a</span>)&#123;</span><br><span class="line">    <span class="variable">$a</span> = <span class="variable">$a</span> + 1;</span><br><span class="line">    <span class="built_in">return</span> <span class="variable">$a</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable">$x</span> = 1;</span><br><span class="line"><span class="built_in">echo</span> <span class="built_in">test</span>(<span class="variable">$x</span>);</span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$x</span>;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+<p>当调用一次 test() 函数后，$x 的值被改变，执行以上代码的运行结果为：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2 2</span><br></pre></td></tr></table></figure>
+<p><b>引用传递的参数必须是一个变量</b></p>
+<h3 id="默认参数"><a href="#默认参数" class="headerlink" title="默认参数"></a>默认参数</h3><p>PHP 支持函数默认参数，允许使用数字、字符串、数组、NULL 等作为默认参数。<br>默认参数的值必须是常量表达式，不能是诸如变量、类成员或者函数调用等。</p>
+<p><b>以上大多笔记整理于网络</b></p>
 
       
     </div>
